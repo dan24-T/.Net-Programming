@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>
+ <canvas id="myCanvas" width="1000" height="1000"></canvas>
+</body>
+
+<script>
+
+var canvas = document.getElementById('myCanvas');
+
+var ctxt = canvas.getContext('2d');
+
+ctxt.beginPath();
+ctxt.moveTo(100, 100);
+ctxt.lineTo(100, 800);
+ctxt.lineTo(1000,800);
+ctxt.lineWidth=5;
+ctxt.stroke();
+
+for (let i=0; i<60; i++)
+{
+
+    ctxt.fillText(i*50, 100+i*50, 815);
+    ctxt.fillText(i*50, i*50, 10);
+    ctxt.fillText(i*50, 10, i*50);
+
+}
+
+for (let j=0; j<9; j++)
+{
+    x1 = Math.ceil(Math.random()*500);
+    ctxt.beginPath();
+    ctxt.rect(100+j*50, 800, 50, -x1);
+    ctxt.stroke();
+
+}
+
+
+
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE>
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>
+ <canvas id="myCanvas" width="1000" height="600"></canvas>
+</body>
+
+<script>
+
+var canvas = document.getElementById('myCanvas');
+
+var ctxt = canvas.getContext('2d');
+
+x1 = Math.ceil(Math.random()*100);
+x2 = Math.ceil(Math.random()*100);
+x3 = Math.ceil(Math.random()*400);
+x4 = Math.ceil(Math.random()*400);
+
+ctxt.beginPath();
+ctxt.moveTo(x1,x2);
+ctxt.lineTo(x3,x3);
+ctxt.stroke();
+
+ctxt.beginPath();
+ctxt.rect(x1, x2, x3, x4);
+ctxt.stroke();
+
+</script>
+</html>

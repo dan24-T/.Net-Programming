@@ -1,0 +1,28 @@
+<!DOCTYPE>
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>
+ <canvas id="myCanvas" width="1000" height="600"></canvas>
+</body>
+
+<script>
+
+var canvas = document.getElementById('myCanvas');
+
+var ctxt = canvas.getContext('2d');
+
+x1 = Math.ceil(Math.random()*500);
+x2 = Math.ceil(Math.random()*500);
+x3 = Math.ceil(Math.random()*100);
+controlpoint = Math.ceil(Math.random()*100);;
+
+ctxt.beginPath();
+ctxt.moveTo(x1, x2);
+ctxt.quadraticCurveTo(288, controlpoint, 388, x2);
+ctxt.stroke();
+
+</script>
+</html>
