@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="cont">
+
+    </div>
+</body>
+
+<script>
+
+
+let myArray = [];
+
+let rows = 5;
+let colmns = 10;
+
+/*for (let i = 0; i < rows; i++) {
+    //myArray.push(i);
+    for (let j = 0; j < colmns; j++) {
+        myArray[i] = [];   
+    }
+}
+
+for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < colmns; j++) {
+        myArray[i][j] = j;
+    } 
+}
+
+myArray[2][2] = 5;
+
+console.log(myArray);
+  */  
+/*function AddNew(ha) {
+    const txt = document.createElement("div");
+    txt.classList.add("seats");
+    txt.id = ha;
+    document.getElementById("cont").appendChild(txt);
+}*/
+
+function CreateTable(txt){
+    for (let i = 0; i < rows; i++) {
+        var r = document.createElement("tr");
+        for (let j = 0; j < colmns; j++) {
+            var c = document.createElement('td');
+            c.classList.add("seats");
+            c.id = txt[i][j];
+            c.onclick = function() { 
+                let x = this.id;
+                let itdo = array1.includes(x);
+                let fxdo = fixedArray.includes(x);
+
+                if (fxdo !== true) {
+                   if (itdo === true) {
+                    console.log(x+" exists");
+                    const ind = array1.indexOf(x);
+                    array1.splice(ind, 1);
+                    changeBack();
+                    changeColor();
+                    FixedColor();
+                    }
+                    else{
+                        array1.push(x);
+                        changeColor();
+                    } 
+                }
+                
+                
+                console.log(array1);
+            };
+            r.appendChild(c);
+        }
+        document.getElementById("cont").appendChild(r);
+    }
+}
+
+
+////CREATION OF ARRAY (2D)
+let c = 64;
+let arr = []
+
+for (let i = 0; i < rows; i++) {
+    
+    for (let j = 0; j < colmns; j++) {
+        arr[i] = [];
+        
+    }
+}
+
+for (let i = 0; i < rows; i++) {
+    c++;
+    for (let j = 0; j < colmns; j++) {
+        arr[i][j] = String.fromCharCode(c)+(j+1);
+        
+    } 
+}
+////END OF CREATION OF THE 2D ARRAY
+
+
+////CHECKS 
+array1 = [];
+fixedArray = ['A4','B8','C9']
+
+CreateTable(arr);
+
+FixedColor();
+
+function changeColor(){
+
+for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < colmns; j++) {
+        for (let k = 0; k < array1.length; k++) {
+            
+            let name = document.getElementById(arr[i][j]);
+
+            if (name.id === array1[k] ) {
+                name.style.background = "blue";
+                
+            }
+            
+        }
+    }
+    
+}
+
+}
+
+function changeBack(){
+
+for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < colmns; j++) {
+        for (let k = 0; k <= array1.length; k++) {
+            
+            let name = document.getElementById(arr[i][j]);
+
+            if (name.id !== array1[k] ) {
+                name.style.background = "white";
+                
+            }
+            
+        }
+    }
+    
+}
+
+}
+
+function FixedColor(){
+
+for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < colmns; j++) {
+        for (let k = 0; k < fixedArray.length; k++) {
+            
+            let name = document.getElementById(arr[i][j]);
+
+            if (name.id === fixedArray[k] ) {
+                name.style.background = "red";
+                
+            }
+            
+        }
+    }
+    
+}
+
+}
+
+console.log(arr);
+
+</script>
+</html>
